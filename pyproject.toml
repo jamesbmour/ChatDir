@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "chatdir"
+version = "0.1.0"
+description = "A CLI tool to chat with files in a directory"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+click = "^8.1.3"
+transformers = "^4.30.0"
+openai = "^0.27.0"
+faiss-cpu = "^1.7.3"
+annoy = "^1.17.0"
+pandas = "^2.0.3"
+pyyaml = "^6.0"
+loguru = "^0.6.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.3.1"
+pytest-mock = "^3.10.0"
+sphinx = "^7.0.1"
+
+[tool.poetry.scripts]
+chatdir = "chatdir.cli:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
