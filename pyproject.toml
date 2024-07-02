@@ -19,6 +19,7 @@ chromadb = "^0.5.3"
 sentence-transformers = "^3.0.1"
 python-dotenv = "^1.0.1"
 requests = "^2.32.3"
+ollama = "^0.2.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.3.1"

@@ -6,11 +6,16 @@ from typing import Dict, Any, Optional
 # Load environment variables from .env file
 load_dotenv()
 
+
 class LLMAPI:
     def __init__(self):
         self.api_key = os.getenv("LLM_API_KEY")
-        self.api_endpoint = os.getenv("LLM_API_ENDPOINT", "http://localhost:11434/api/generate")  # Default to Ollama
-        self.model = os.getenv("LLM_MODEL", "llama2")  # Default model for Ollama
+        self.api_endpoint = os.getenv("LLM_API_ENDPOINT", "http://localhost:11434")
+        self.model = os.getenv("LLM_MODEL", "gemma2")  # Default model is now 'gemma2'
+
+        # Convert "None" string to None
+        if self.api_key == "None":
+            self.api_key = None
 
     def generate(self, prompt: str, max_tokens: int = 100, temperature: float = 0.7) -> Dict[str, Any]:
         """
@@ -21,14 +26,17 @@ class LLMAPI:
             headers["Authorization"] = f"Bearer {self.api_key}"
 
         payload = {
-            "prompt": prompt,
             "model": self.model,
-            "max_tokens": max_tokens,
-            "temperature": temperature,
+            "prompt": prompt,
+            "stream": False,
+            "options": {
+                "num_predict": max_tokens,
+                "temperature": temperature,
+            }
         }
 
         try:
-            response = requests.post(self.api_endpoint, json=payload, headers=headers)
+            response = requests.post(f"{self.api_endpoint}/api/generate", json=payload, headers=headers)
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:
@@ -49,9 +57,9 @@ class LLMAPI:
 
     def set_api_key(self, api_key: str):
         """
-        Set a custom API key.
+        Set a custom API key. Use None to remove the API key.
         """
-        self.api_key = api_key
+        self.api_key = api_key if api_key != "None" else None
 
     @staticmethod
     def get_available_models() -> Optional[Dict[str, Any]]:
@@ -65,3 +73,12 @@ class LLMAPI:
         except requests.RequestException as e:
             print(f"Error fetching available models: {e}")
             return None
+
+
+if __name__ == "__main__":
+    llm_api = LLMAPI()
+    response = llm_api.generate("Hello, how are you?")
+    print(response)
+
+    models = llm_api.get_available_models()
+    print(models)
