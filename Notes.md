@@ -2,6 +2,24 @@
 
 CLI tool that allows you to chat with files in a directory using LLMs.
 
+---
+
+# ChatDir: Chat with Files in a Directory
+
+## Overview
+
+**ChatDir** is a powerful command-line interface (CLI) tool designed to enable users to interactively chat with files in a directory. Leveraging the capabilities of both local and API-based large language models (LLMs), ChatDir provides an intuitive interface to explore, analyze, and gain insights from your files using natural language processing (NLP) techniques.
+
+Whether you need to quickly summarize documents, search for specific information, or understand complex datasets, ChatDir makes it easy to communicate with your files as if you were having a conversation.
+
+## Features
+
+- **Local and API-Based LLMs**: Seamlessly switch between local LLMs for offline processing and API-based LLMs for leveraging the latest advancements in NLP.
+- **File Handling**: Efficiently manage and process files within a specified directory, supporting various file types and formats.
+- **Vector Database Integration**: Utilize a local vector database for efficient similarity search and data retrieval.
+- **User-Friendly CLI**: Intuitive command-line interface built with Click for easy interaction and command execution.
+- **Extensible Architecture**: Modular design allows for easy extension and customization of functionality.
+
 # Explanation of the Structure
 
 - **README.md**: This file will contain an overview of your project, how to set it up, and how to use it.
@@ -41,23 +59,6 @@ CLI tool that allows you to chat with files in a directory using LLMs.
 
 Here’s a detailed project description for your CLI tool, which you can use for your `README.md` or other documentation:
 
----
-
-# ChatDir: Chat with Files in a Directory
-
-## Overview
-
-**ChatDir** is a powerful command-line interface (CLI) tool designed to enable users to interactively chat with files in a directory. Leveraging the capabilities of both local and API-based large language models (LLMs), ChatDir provides an intuitive interface to explore, analyze, and gain insights from your files using natural language processing (NLP) techniques.
-
-Whether you need to quickly summarize documents, search for specific information, or understand complex datasets, ChatDir makes it easy to communicate with your files as if you were having a conversation.
-
-## Features
-
-- **Local and API-Based LLMs**: Seamlessly switch between local LLMs for offline processing and API-based LLMs for leveraging the latest advancements in NLP.
-- **File Handling**: Efficiently manage and process files within a specified directory, supporting various file types and formats.
-- **Vector Database Integration**: Utilize a local vector database for efficient similarity search and data retrieval.
-- **User-Friendly CLI**: Intuitive command-line interface built with Click for easy interaction and command execution.
-- **Extensible Architecture**: Modular design allows for easy extension and customization of functionality.
 
 ## Installation
 
