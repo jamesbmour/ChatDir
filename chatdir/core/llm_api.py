@@ -82,3 +82,7 @@ if __name__ == "__main__":
 
     models = llm_api.get_available_models()
     print(models)
+
+
+def APILLM():
+    return None
